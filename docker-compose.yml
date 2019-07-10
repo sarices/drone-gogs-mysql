@@ -32,6 +32,8 @@ services:
       - ./gogs/data:/data
     depends_on:
       - mysql
+    links:
+      - drone-server
   mysql:
     image: mysql:5.7.16
     container_name: dgci-mysql
@@ -60,6 +62,6 @@ services:
      image: docker:dind
      container_name: dgci-bind
      privileged: true
-     command: --registry-mirror=https://registry.docker-cn.com
+    #  command: --registry-mirror=https://registry.docker-cn.com
      
 
